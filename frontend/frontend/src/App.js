@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Navbar from './components/Navbar';
-import Timelines from './components/Timelines';
-import TimelineForm from './components/TimelineForm'
 import { Link } from 'react-router-dom';
 import Main from './components/Main';
 import { Provider } from 'react-redux';
@@ -37,11 +35,6 @@ class App extends Component {
           <Link to="/meetups/add" className="btn-floating btn-large red">
           <i className="fa fa-plus"></i>
           </Link>
-        </div>
-        <div>
-          <TimelineForm />
-          <hr />
-          <Timelines />
         </div>
       </div>
       </Provider>
