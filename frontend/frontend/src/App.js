@@ -22,35 +22,6 @@ class App extends Component {
     }
 }
 
-//  componentWillMount(){
-//      console.log('Get Timelines');
-//    this.getTimelines();
-//  }
-
-  getTimelines(){
-    //get the token
-    let ctoken = localStorage.getItem("token");
-    console.log('ctoken = ' + ctoken)
-    if(ctoken){
-        let apiConfig = {
-          headers:{Authorization: `Token ` + ctoken}
-        };
-          console.log(apiConfig);
-        axios.get('http://localhost:8000/timelines/',apiConfig)
-
-        .then(response => {
-            this.setState({timelines: response.data}, () => {
-            console.log(this.state);
-          })
-        })
-        .catch(err => console.log(err))
-    }
-    else{
-      this.setState({timelines:[]});
-    }
-
-  }
-
   render() {
     return (
       <Provider store={store}>
