@@ -5,6 +5,9 @@ import About from './About';
 import Timelines from './Timelines';
 import TimelineForm from './TimelineForm';
 import Home from './Home';
+import TimeLineDetails from './TimelineDetails';
+import TimelineDetailForm from './TimelineDetailForm';
+import TimelineNewDetailForm from './TimelineNewDetailForm';
 
 const Main = () => (
   <main>
@@ -14,6 +17,9 @@ const Main = () => (
       <Route exact path='/login' component={Login} />
       <Route exact path='/timelines' component={Timelines} />
       <Route exact path='/timelines/add' component={TimelineForm} />
+      <Route exact path='/timelines/:id' component={TimeLineDetails} />
+      <Route exact path='/timelines/:tid/detail/:id' component={TimelineDetailForm} />
+      <Route exact path='/timelines/:tid/add' component={TimelineNewDetailForm} />
     </Switch>
   </main>
 

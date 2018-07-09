@@ -1,28 +1,28 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchTimelines } from '../actions/postActions'
+import { fetchTimelines } from '../actions/postActions';
+import Timeline from './Timeline';
 
 
 class Timelines extends Component {
 
-  componentWillMount(){
+  componentDidMount(){
+    //console.log("get the timelines (axios call)");
     this.props.fetchTimelines();
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.newTimeline){
+    if (Object.keys(nextProps.newTimeline).length > 0 ){
       this.props.timelines.unshift(nextProps.newTimeline);
     }
   }
 
   render(){
+    console.log("display the timelines list for this user")
     console.log(this.props)
     const timelineItems = this.props.timelines.map(timeline => (
-      <div key={timeline.id}>
-        <h3>{timeline.name}</h3>
-        <p>{timeline.date_created}</p>
-      </div>
+      <Timeline key={timeline.id} item = { timeline }/>
     ));
 
     return (
