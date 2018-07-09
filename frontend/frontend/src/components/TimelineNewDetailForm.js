@@ -10,7 +10,8 @@ class TimelineNewDetailForm extends Component {
     this.state = {
       title:'',
       description:'',
-      detail:{}
+      tdate:'',
+      url:''
     }
 
     this.onChange = this.onChange.bind(this);
@@ -35,6 +36,8 @@ class TimelineNewDetailForm extends Component {
     const timelineNewDetail = {
       title: this.state.title,
       description:this.state.description,
+      tdate:this.state.tdate,
+      url:this.state.url,
       timeline_id: this.props.match.params.tid //get this from the url
     }
 
@@ -53,6 +56,10 @@ class TimelineNewDetailForm extends Component {
           <input type="text" name="title" onChange={this.onChange} value={this.state.title}/>
           <label>Description: </label><br />
           <input type="text" name="description" onChange={this.onChange} value={this.state.description}/>
+            <label>DATE: </label><br />
+          <input type="text" name="tdate" onChange={this.onChange} value={this.state.tdate}/>
+            <label>URL: </label><br />
+          <input type="text" name="URL" onChange={this.onChange} value={this.state.URL}/>
         </div>
         <button type="submit">Submit</button>
 

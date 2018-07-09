@@ -12,6 +12,7 @@ class TimelineDetailForm extends Component {
     this.state = {
       title:'',
       description:'',
+      tdate:'',
       url:'',
       detail:{}
     }
@@ -29,13 +30,16 @@ class TimelineDetailForm extends Component {
 
   componentWillReceiveProps(nextProps){
     //console.log("componentWillReceiveProps");
-    //console.log(nextProps);
+    console.log(nextProps);
 
     if (this.state.title == '' && nextProps.detail.title){
       this.setState({title: nextProps.detail.title});
     }
     if (this.state.description == '' && nextProps.detail.description){
       this.setState({description: nextProps.detail.description});
+    }
+    if (this.state.tdate == '' && nextProps.detail.tdate){
+      this.setState({tdate: nextProps.detail.tdate});
     }
     if (this.state.url == '' && nextProps.detail.url){
       this.setState({url: nextProps.detail.url});
@@ -54,6 +58,7 @@ class TimelineDetailForm extends Component {
       id: this.props.match.params.id, //get this from the url
       title: this.state.title,
       description:this.state.description,
+      tdate:this.state.tdate,
       url:this.state.url,
       timeline_id: this.props.match.params.tid //get this from the url
     }
@@ -77,6 +82,8 @@ class TimelineDetailForm extends Component {
           <input type="text" name="title" onChange={this.onChange} value={this.state.title}/>
           <label>Description: </label><br />
           <input type="text" name="description" onChange={this.onChange} value={this.state.description}/>
+          <label>Date: </label><br />
+          <input type="text" name="tdate" onChange={this.onChange} value={this.state.tdate}/>
           <label>URL: </label><br />
           <input type="text" name="url" onChange={this.onChange} value={this.state.url}/>
         </div>

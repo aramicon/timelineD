@@ -19,7 +19,7 @@ class TimeLineDetails extends Component{
   }
 
   render(){
-    const timelineDetails = this.props.details.map(detail => (
+    const timelineDetails = this.props.details.sort((a, b) => a.tdate > b.tdate).map(detail => (
       <TimelineDetail key={detail.id} item = { detail }/>
    ));
 

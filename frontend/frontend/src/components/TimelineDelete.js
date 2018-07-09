@@ -29,7 +29,7 @@ class TimelineDelete extends Component {
 }
 
 TimelineDelete.propTypes = {
-  editTimeline: PropTypes.func.isRequired
+  deleteTimeline: PropTypes.func.isRequired
 };
 
 export default connect(null, { deleteTimeline })(TimelineDelete);
